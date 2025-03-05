@@ -24,11 +24,15 @@ function Banner() {
 
 
 
-
+    const [isExpanded, setIsExpanded] = useState(false);
 
     function truncate(string, n) {
         return string?.length > n ? string.substr(0, n-1) + "..." : string;
-    }
+    };
+
+    const toggleExpansion = () => {
+        setIsExpanded(!isExpanded);
+      };
 
     
     return (
@@ -49,13 +53,61 @@ function Banner() {
             
         </div>
         <h1 className="banner-description"> 
-            {truncate
-            (movie?.overview, 150)}
+        {isExpanded ? movie?.overview : truncate(movie?.overview, 150)}
+        {movie?.overview?.length > 150 && (
+          <button onClick={toggleExpansion} className="read-more-button">
+            {isExpanded ? "Show less" : " Read More"}
+           
+          </button>
+        )}
              </h1>
-            
         <div className="banner--fadeBottom" />
     </header>
   )
 }
 
 export default Banner;
+
+
+
+
+
+/*
+isExpanded
+
+const [isExpanded, setIsExpanded] = useState(false);
+
+  const truncate = (string, n) => {
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  };
+
+  const toggleExpansion = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <div className="banner-contents">
+      <h1 className="banner-title">
+        {movie?.title || movie?.name || movie?.original_name}
+      </h1>
+      <div>
+        <button className="banner-button">Play</button>
+        <button className="banner-button">My List</button>
+      </div>
+      <h1 className="banner-description">
+        {isExpanded ? movie?.overview : truncate(movie?.overview, 150)}
+        {movie?.overview?.length > 150 && (
+          <button onClick={toggleExpansion} className="read-more-button">
+            {isExpanded ? " Show Less" : " Read More"}
+          </button>
+        )}
+      </h1>
+    </div>
+
+
+
+
+
+
+
+*/

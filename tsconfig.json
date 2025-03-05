@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "es5", // Or es6, depending on your target environment
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "allowJs": true, // Allow JavaScript files to be compiled (if needed)
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true, // Enable strict type checking
+      "forceConsistentCasingInFileNames": true,
+      "module": "esnext", // Or commonjs, depending on your module system
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true, // Don't emit output files (if you are only using this for type checking)
+      "jsx": "react" // If you're using JSX in React
+    },
+    "include": [
+      "src" // Include all files in the src directory
+, "functions/getTrailer.js"    ]
+  }

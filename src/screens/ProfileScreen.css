@@ -1,0 +1,156 @@
+.profileScreen {
+
+    height:100vh;
+    color:white;
+}
+
+.profileScreen-body {
+    display:flex;
+    flex-direction: column;
+    width:50%;
+    margin:auto;
+    padding-top: 15%; /*padding-top: 35%;*/
+    max-width: 800px;
+}
+
+.profileScreen-info {
+    display: flex;
+  
+   
+}
+
+.profileScreen-info > img {
+    height: 80px; /* Adjust image height for mobile */
+    margin-bottom: 10px; /* Add space below image */
+}
+
+.profileScreen-body > h1 {
+    font-size:60px;
+    font-weight: 400;
+    border-bottom: 1px solid #282c2d;
+    margin-bottom:20px;
+    margin: 0 auto; /* Center with auto margins */
+
+
+}
+
+.profileScreen-details {
+    color:white;
+    margin-left: 25px;
+    flex:1;
+}
+
+.profileScreen-details > h2 {
+    background-color: grey;
+    padding:15px;
+    font-size:15px;
+    padding-left: 20px;
+}
+
+.profileScreen-signOut {
+    padding: 10px 20px;
+    font-size:1rem;
+    margin-top: 5%;
+    width:100%;
+    color:white;
+    background-color: #e50914;
+    font-weight: 600;
+    border: none;
+    cursor:pointer;
+}
+
+.profileScreen-Plans > h3 {
+    border-bottom: 1px solid #282c2d;
+    margin-top: 20px;
+    padding-bottom:  10px;
+}
+
+
+@media (max-width: 768px) and (max-width: 1024px) {
+
+    .profileScreen-body {
+        min-height: 100vh;
+        height:auto;
+        display: flex;
+        flex-direction: column;
+        width: 90%; /* Adjust width for mobile */
+        margin: 0 auto; /* Center with auto margins */
+        padding-top: 50%; /* Adjust padding for mobile */
+        max-width: 800px;
+    }
+    
+    .profileScreen-info {
+        display: flex;
+        flex-direction: column; /* Stack image and details on mobile */
+        align-items: center; /* Center items on mobile */
+    }
+    
+    .profileScreen-info > img {
+        height: 80px; /* Adjust image height for mobile */
+        margin-bottom: 10px; /* Add space below image */
+    }
+    
+    .profileScreen-body > h1 {
+        font-size: 40px; /* Adjust font size for mobile */
+        font-weight: 400;
+        border-bottom: 1px solid #282c2d;
+        margin-bottom: 20px;
+        text-align: center; /* Center heading on mobile */
+    }
+    
+    .profileScreen-details {
+        color: white;
+        margin-left: 0; /* Remove left margin on mobile */
+        flex: 1;
+        width: 100%; /* Ensure details take full width */
+    }
+    
+    .profileScreen-details > h2 {
+        background-color: grey;
+        padding: 10px; /* Adjust padding for mobile */
+        font-size: 14px; /* Adjust font size for mobile */
+        padding-left: 15px; /* Adjust left padding for mobile */
+    }
+    
+    .profileScreen-signOut {
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 5%;
+        width: 100%;
+        color: white;
+        background-color: #e50914;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+    }
+    
+ 
+    .profileScreen-Plans{
+
+        justify-content: space-between;
+    }
+
+    .profileScreen-Plans > h3 {
+        border-bottom: 1px solid #282c2d;
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+
+}
+
+
+
+/*
+ .profileScreen-body {
+        width: 95%; /* Further reduce width on very small screens 
+        padding-top: 10%;
+    }
+
+    .profileScreen-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+*/

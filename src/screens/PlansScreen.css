@@ -1,0 +1,95 @@
+
+
+
+.plansScreen-plan {
+    display:flex;
+    
+  
+    justify-content: space-between;
+    margin: auto;
+    padding:20px;
+    opacity:0.8;
+}
+
+.plansScreen-plan:hover{
+    opacity:1;
+}
+
+.plansScreen-plan > button {
+    padding:10px 20px;
+    font-size:1rem;
+    font-weight: 600;
+    border:none;
+   
+    background-color: #e50914;
+    color:#ffff;
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 768px) {
+    
+    .plansScreen-plan {
+        display: flex;
+        justify-content: space-between;
+        margin:auto;
+        padding:20px;
+        
+  }
+
+  .planscreen-info {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Auto-width h5, remaining space for h6 */
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  
+   
+  
+
+  .planscreen-info h6 {
+    margin-left: 0; /*Optional: remove the left margin from the h6*/
+   
+}
+
+  .plansScreen-plan > button {
+    margin-top: 10px; /* Add space between elements */
+    margin-left: 15px;
+    width: 120px; /* Make button full width */
+    justify-content: space-between;
+  }
+
+  .planscreen-info > div {
+    display: flex;
+    flex-direction: column; /* Stack the h6 vertically */
+  }
+  
+  .planscreen-info > h6 {
+    margin: 0; /* Remove default margins */
+  }
+
+
+
+
+}
+
+
+
+
+/*
+
+flex-direction: row; /* Or remove display: flex if not needed 
+align-items: flex-start; /* Or other alignment as needed 
+justify-content: space-between;
+width: 100%; /* Ensure it spans the width
+height: auto; /* Ensure height adjusts to content 
+flex-basis:none; /* Ensure flexbox doesn't force equal dimensions 
+/* Stack elements vertically 
+align-items: flex-start;  Align items to the start 
+padding: 10px;
+
+
+*/

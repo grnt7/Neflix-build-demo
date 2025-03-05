@@ -1,9 +1,9 @@
 import React from 'react'
-import "./Styles/Homescreen.css";
-import Nav from './Nav';
-import Banner from "./Banner";
-import requests from './Requests';
-import Row from "./Row";
+import "../screens/Homescreen.css";
+import Nav from '../Components/Nav';
+import Banner from "../Components/Banner";
+import requests from '../Components/Requests';
+import Row from "../Components/Row";
 
 
 

@@ -36,3 +36,9 @@ z-index: 1;
     height:30px;
     cursor:pointer;
 }
+
+/*.nav-logo, .nav-avatar {
+    touch-action: manipulation;
+}
+*/
+
