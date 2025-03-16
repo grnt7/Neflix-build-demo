@@ -1,6 +1,79 @@
 import React, { useRef } from 'react';
 import { auth } from '../firebase';
 import './SignUpScreen.css';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
+function SignUpScreen() {
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const register = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      emailRef.current?.value,
+      passwordRef.current?.value
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
+  const signIn = () => {
+    signInWithEmailAndPassword(
+      auth,
+      emailRef.current?.value,
+      passwordRef.current?.value
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isSignIn = e.nativeEvent.submitter.textContent === "Sign In";
+
+    if (isSignIn) {
+      signIn();
+    } else {
+      register();
+    }
+  };
+
+  return (
+    <div className="signupScreen">
+      <form onSubmit={handleSubmit}>
+        <h1>Sign In</h1>
+        <input ref={emailRef} placeholder="Email" type="email" />
+        <input ref={passwordRef} placeholder="password" type="password" />
+        <button type="submit">Sign In</button>
+
+        <h4>
+          <span className="signupScreen-grey">New to Netflix? </span>
+          <span className="signupScreen-link">
+            <button type="submit">Sign Up Now.</button>
+          </span>
+        </h4>
+      </form>
+    </div>
+  );
+}
+
+export default SignUpScreen;
+
+
+/*
+import React, { useRef } from 'react';
+import { auth } from '../firebase';
+import './SignUpScreen.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function SignUpScreen() {
@@ -58,11 +131,7 @@ function SignUpScreen() {
 
 export default SignUpScreen;
 
-
-
-
-
-
+*/
 
 
 

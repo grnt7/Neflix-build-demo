@@ -4,12 +4,13 @@ import ProfileScreen from './screens/ProfileScreen'
 import React, {useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {auth} from "./firebase";
-import { useDispatch } from "react-redux";
-import { login, logout } from './features/userSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout,selectUser } from './features/userSlice';
 import './App.css';
 
 function App() {
-  
+
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(()=> {
@@ -37,12 +38,16 @@ function App() {
   return (
     <div className="app">
       <Router>
+        {!user ? (
+          <LoginScreen />
+        ) : (
         <Routes>
           <Route path="/test" element={<h1>Wow! Whats up#Papaddog</h1>} />
           <Route path="/loginscreen" element={<LoginScreen/>} />
           <Route path="/profilescreen" element={<ProfileScreen/>} />
           <Route path="/" element={<Homescreen />} />
         </Routes>
+        )}
       </Router>
     </div>
   );
@@ -50,49 +55,3 @@ function App() {
 
 export default App;
 
-/*
-
-useEffect(() => {
-    auth.onAuthStateChanged((userAuth) => {
-        if (userAuth) {
-            //Logged In
-            console.log(userAuth);
-        } else {
-            //Logged Out
-        }
-    });
-}, []);
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <Route path="/" element={<LoginScreen />} />
-
-    const user = null;
-
-  useEffect(( ) => {
-    auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) {
-        //Logged In
-        console.log(userAuth);
-
-      } else {
-        //Logged Out
-      }
-    });
-  }, []);
-
-
-*/

@@ -2,12 +2,64 @@ import React, { useState, useEffect } from 'react';
 import "./Styles/row.css";
 import axios from "./axios";
 import YouTube from 'react-youtube';
+import movieTrailer from 'movie-trailer';
 
 
 function Row({ title, fetchUrl, isLargeRow = true }) {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null); // Track the selected movie
     const base_url = "https://image.tmdb.org/t/p/original/";
+
+    const fetchTrailerKey = async (movie) => {
+        try {
+            const videoRequest = await axios.get(
+                `/movie/${movie.id}/videos?api_key=${process.env.TMDB_API_KEY}&language=en-US`
+              );
+           
+            const trailer = videoRequest.data.results.find(
+                (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+            ) || videoRequest.data.results.find(
+                (vid) => vid.type === "Teaser" && vid.site === "YouTube"
+            ) || videoRequest.data.results.find(
+                (vid) => vid.site === "YouTube"
+            );
+            return trailer ? trailer.key : null;
+        } catch (error) {
+            console.error("Error fetching TMDB trailers:", error);
+            if (error.response) {
+                console.error("API Error Response:", error.response.data);
+                console.error("API Error Status:", error.response.status);
+            }
+            try {
+                const url = await movieTrailer(movie.title || movie.name || "");
+                if (url) {
+                    const urlParams = new URLSearchParams(new URL(url).search);
+                    return urlParams.get('v');
+                }
+                return null;
+            } catch (trailerError) {
+                console.error("movie-trailer error:", trailerError);
+                return null;
+            }
+        }
+    };
+
+    useEffect(() => {
+        async function fetchData() {
+            const request = await axios.get(fetchUrl);
+            const moviesWithTrailers = await Promise.all(
+                request.data.results.map(async (movie) => {
+                    const trailerKey = await fetchTrailerKey(movie);
+                    return { ...movie, trailerKey };
+                })
+            );
+            setMovies(moviesWithTrailers);
+            return request;
+        }
+        fetchData();
+    }, [fetchUrl]);
+
+
 
     useEffect(() => {
         async function fetchData() {
@@ -40,14 +92,18 @@ function Row({ title, fetchUrl, isLargeRow = true }) {
 
     const opts = {
         height: "500px",
-        width: "100%",
+        width: "800px",
         playerVars: {
-            autoplay: 1,
+        autoplay: 1,
         },
     };
 
     const handleClick = (movie) => {
         setSelectedMovie(movie);
+    };
+
+    const handleClose = () => {
+        setSelectedMovie(null); // Set selectedMovie to null to close
     };
 
     return (
@@ -64,9 +120,13 @@ function Row({ title, fetchUrl, isLargeRow = true }) {
                                 alt={movie.name || movie.title || "Movie Poster"}
                                 onClick={() => handleClick(movie)}
                             />
+                             {console.log("Trailer Key:", movie.trailerKey)} 
                             {selectedMovie && selectedMovie.id === movie.id && movie.trailerKey && (
+                                
                                 <div className="trailer-container">
+                                     <button onClick={handleClose}>Close</button> {/* Add close button */}
                                     <YouTube videoId={movie.trailerKey} opts={opts} />
+                                   
                                 </div>
                             )}
                             {selectedMovie && selectedMovie.id === movie.id && !movie.trailerKey && (
@@ -86,67 +146,58 @@ export default Row;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
-Gemini
+// ... inside the movies.map function ...
+
 import React, { useState, useEffect } from 'react';
 import "./Styles/row.css";
 import axios from "./axios";
 import YouTube from 'react-youtube';
+import movieTrailer from 'movie-trailer'; // Import movie-trailer
 
 function Row({ title, fetchUrl, isLargeRow = true }) {
-    const [movies, setMovies] = useState([]);
-    const [trailerUrl, setTrailerUrl] = useState('');
-    const [selectedMovieId, setSelectedMovieId] = useState(null);
-    const base_url = "https://image.tmdb.org/t/p/original/";
+    // ... (other state and variables)
+
+    const fetchTrailerKey = async (movie) => {
+        try {
+            const videoRequest = await axios.get(
+                `/movie/<span class="math-inline">\{movie\.id\}/videos?api\_key\=</span>{process.env.TMDB_API_KEY}&language=en-US`
+            );
+            const trailer = videoRequest.data.results.find(
+                (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+            ) || videoRequest.data.results.find(
+                (vid) => vid.type === "Teaser" && vid.site === "YouTube"
+            ) || videoRequest.data.results.find(
+                (vid) => vid.site === "YouTube"
+            );
+            return trailer ? trailer.key : null;
+        } catch (error) {
+            console.error("Error fetching TMDB trailers:", error);
+            if (error.response) {
+                console.error("API Error Response:", error.response.data);
+                console.error("API Error Status:", error.response.status);
+            }
+            try {
+                const url = await movieTrailer(movie.title || movie.name || "");
+                if (url) {
+                    const urlParams = new URLSearchParams(new URL(url).search);
+                    return urlParams.get('v');
+                }
+                return null;
+            } catch (trailerError) {
+                console.error("movie-trailer error:", trailerError);
+                return null;
+            }
+        }
+    };
 
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(fetchUrl);
             const moviesWithTrailers = await Promise.all(
                 request.data.results.map(async (movie) => {
-                    try {
-                        const videoRequest = await axios.get(
-                            `/movie/${movie.id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`
-                        );
-                        const trailer = videoRequest.data.results.find(
-                            (vid) => vid.type === "Trailer" && vid.site === "YouTube"
-                        );
-                        return {
-                            ...movie,
-                            trailerKey: trailer ? trailer.key : null,
-                        };
-                    } catch (error) {
-                        console.error("Error fetching trailers:", error);
-                        return { ...movie, trailerKey: null }; // Ensure all movie objects have trailerKey
-                    }
+                    const trailerKey = await fetchTrailerKey(movie);
+                    return { ...movie, trailerKey };
                 })
             );
             setMovies(moviesWithTrailers);
@@ -155,23 +206,7 @@ function Row({ title, fetchUrl, isLargeRow = true }) {
         fetchData();
     }, [fetchUrl]);
 
-    const opts = {
-        height: "390",
-        width: "100%",
-        playerVars: {
-            autoplay: 1,
-        },
-    };
-
-    const handleClick = (movie) => {
-        setSelectedMovieId(movie.id);
-        if (movie.trailerKey) {
-            setTrailerUrl(movie.trailerKey);
-        } else {
-            setTrailerUrl("");
-            alert("No Trailer Found");
-        }
-    };
+    // ... (opts and handleClick)
 
     return (
         <div className="row">
@@ -179,29 +214,34 @@ function Row({ title, fetchUrl, isLargeRow = true }) {
             <div className="row-posters">
                 {movies && movies.length > 0 ? (
                     movies.map((movie) => (
-                        <img
-                            key={movie.id}
-                            className={`row-poster ${isLargeRow && "row-posterLarge"}`}
-                            src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-                            alt={movie.name || movie.title || "Movie Poster"}
-                            onClick={() => handleClick(movie)}
-                        />
+                        <React.Fragment key={movie.id}>
+                            <img
+                                key={movie.id}
+                                className={`row-poster ${isLargeRow && "row-posterLarge"}`}
+                                src={`<span class="math-inline">\{base\_url\}</span>{isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                                alt={movie.name || movie.title || "Movie Poster"}
+                                onClick={() => handleClick(movie)}
+                            />
+                            {console.log("Trailer Key:", movie.trailerKey)}
+                            {selectedMovie && selectedMovie.id === movie.id && movie.trailerKey && (
+                                <div className="trailer-container">
+                                    <YouTube videoId={movie.trailerKey} opts={opts} />
+                                </div>
+                            )}
+                            {selectedMovie && selectedMovie.id === movie.id && !movie.trailerKey && (
+                                <p>Trailer Not Found</p>
+                            )}
+                        </React.Fragment>
                     ))
                 ) : (
                     <p>Loading...</p>
                 )}
             </div>
-            {trailerUrl && selectedMovieId && (
-                <div className="trailer-container">
-                    <YouTube videoId={trailerUrl} opts={opts} />
-                </div>
-            )}
         </div>
     );
 }
 
 export default Row;
-
 
 
 papacode

@@ -56,3 +56,7 @@
     cursor:pointer;
     text-decoration: underline;
 }
+
+.signupScreen-link > button {
+    cursor:pointer;
+}

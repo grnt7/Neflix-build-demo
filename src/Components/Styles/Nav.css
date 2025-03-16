@@ -1,4 +1,163 @@
 .nav{
+    position:fixed;
+    top:0;
+    padding:20px;
+    width:100%;
+    height:30px;
+    z-index: 1000;/*Increase z-index*/
+}
+
+.nav_black {
+    background-color: #111;
+}
+
+
+
+.nav-contents {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.nav-logo{
+    height:30px;
+    width: 13rem;
+    position:fixed;
+    left:20px;
+    cursor: pointer;
+}
+
+.nav-avatar{
+    position:fixed;
+    right:20px;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+}
+
+@media (max-width: 768px) {
+
+    .nav{
+    padding-top: 20px;/*env(safe-area-inset-top); Add padding for top safe area */
+    top:0;
+    padding:20px;
+    width:100%;
+    height:30px;
+    
+    }
+
+    .nav_black {
+        background-color: #111;;
+    }
+    .nav-logo {
+        left: 10px; /* Adjust logo position */
+        width: 10rem;/*adjust logo width*/
+    }
+
+    .nav-avatar {
+        margin-right: 25px; /* Adjust avatar position */
+    }
+
+    /*.nav-contents {
+        flex-direction: row; Or column, depending on your layout 
+       
+    }*/
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.nav-logo, .nav-avatar {
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: block !important; /* Override display: none 
+        visibility: visible !important; /* Override visibility: hidden 
+        opacity: 1 !important; /* Override opacity: 0 
+    }
+}
+*/
+
+/*
+.nav{
+    position:fixed;
+    top:0;
+    padding:20px;
+    width:100%;
+    height:30px;
+    z-index: 1000;/*Increase z-index
+}
+//Gemini fix for mobile navbar display
+.nav-contents {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.nav-logo{
+    height:30px;
+    width: 13rem;
+    position:fixed;
+    left:20px;
+    cursor: pointer;
+}
+
+.nav-avatar{
+    position:fixed;
+    right:20px;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-logo {
+        left: 10px; /* Adjust logo position 
+        width: 10rem;/*adjust logo width
+    }
+
+    .nav-avatar {
+        right: 10px; /* Adjust avatar position 
+    }
+
+    .nav-contents {
+        flex-direction: row; /* Or column, depending on your layout 
+        align-items: center; /* Center items vertically 
+    }
+
+    .nav-logo,
+    .nav-avatar {
+        position: static; /* Remove fixed positioning 
+        margin: 0 5px; /* Add some margin 
+    }
+}
+
+
+
+
+
+*/
+
+/* 
+.nav{
 position:fixed;
 top:0;
 padding:20px;
@@ -36,9 +195,15 @@ z-index: 1;
     height:30px;
     cursor:pointer;
 }
-
-/*.nav-logo, .nav-avatar {
-    touch-action: manipulation;
+@media (max-width: 768px) {
+    .navbar {
+        display: block !important; /* Override display: none 
+        visibility: visible !important; /* Override visibility: hidden 
+        opacity: 1 !important; /* Override opacity: 0 
+    }
 }
-*/
 
+
+
+
+*/
