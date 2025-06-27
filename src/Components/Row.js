@@ -124,8 +124,23 @@ function Row({ title, fetchUrl, isLargeRow = true }) {
                             {selectedMovie && selectedMovie.id === movie.id && movie.trailerKey && (
                                 
                                 <div className="trailer-container">
-                                     <button onClick={handleClose}>Close</button> {/* Add close button */}
-                                    <YouTube videoId={movie.trailerKey} opts={opts} />
+                                     <button onClick={handleClose} className="close-button">
+                                     <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="close-icon"
+                >
+                    <line x1="10" y1="2" x2="2" y2="10" />
+                    <line x1="2" y1="2" x2="10" y2="10" />
+                </svg>
+                
+            </button>
+            <YouTube videoId={movie.trailerKey} opts={opts} />
                                    
                                 </div>
                             )}

@@ -59,7 +59,21 @@
     justify-content: center;
 }
 
+.close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1px;
+    position: absolute;
+    top: 8px; /* Adjust position if needed */
+    right: 8px; /* Adjust position if needed */
+    z-index: 10;
+}
 
+.close-icon {
+    width: 12px;
+    height: 12px;
+}
 
 @media (max-width: 768px) {
     .trailer-container {
