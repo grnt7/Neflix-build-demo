@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Disclaimer:** Built purely for demonstration of React, HTML, Javascript, Stripe API skills; zero affiliation with the original brand."
+
 ## Available Scripts
 
 In the project directory, you can run:
