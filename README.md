@@ -9,7 +9,6 @@ Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node
 
 <img width="255" height="357" alt="IpadNetflixsdignupx2000" src="https://github.com/user-attachments/assets/3a2de0e3-3490-49da-9df2-f0908d4c9215" />
 
-<img width="255" height="357" alt="Netflixmoviepage" src="https://github.com/user-attachments/assets/853dc2b5-167d-4ed4-9345-7f88b3e3855f"/>
 
 
 
