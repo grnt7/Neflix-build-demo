@@ -5,7 +5,7 @@ Netflix Clone build developed in REACT
 Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node.js, Firebase, Stripe API, TMDB API, Figma, Vercel; zero affiliation with the original brand."
 
 
-<img width="200" height="500" 
+
 
 <img width="255" height="357" alt="IpadNetflixsdignupx2000" src="https://github.com/user-attachments/assets/3a2de0e3-3490-49da-9df2-f0908d4c9215" />
 
