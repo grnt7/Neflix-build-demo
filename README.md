@@ -27,10 +27,10 @@ Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node
 
 
 
-This is an Uber Clone developed using Papafam Let's Build an Uber Clone with REACT NATIVE!(Navigation, Redux, TailwindCSS, Google Autocomplete and other Google Maps API's. Youtube tutorial. 
+This is an Netflix Clone developed using Papafam Let's Build an Netflix Clone with REACT !(Navigation, Redux, CSS, Firebase, Stripe and TMDB API's. Youtube tutorial. 
 
 🚀 Live 
-See the application live by downloading Expo Go here: https://expo.dev/go
+See the application live :
 
 and
 
@@ -51,7 +51,7 @@ Key Feature 3. User authentication and subscription management via Firebase, pay
 
 Key Feature 4:Responsive video card layouts with hover effects and dynamic content loading.
 
-Key Feature 5: Slick Introduction screen with animated logo and background image. Designed using Figma".
+Key Feature 5: Slick Introduction screen with animated "N" logo and background image. Designed using Figma".
 
 Key Feature 6:Fully deployed on Vercel, demonstrating production-ready payment integration.
 
