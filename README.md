@@ -7,13 +7,10 @@ Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node
 
 <img width="200" height="500" 
 
-<img width="200" height="500"  alt="Screenshot_2AutocompleteDark" src="https://github.com/user-attachments/assets/3aec69c2-87af-4c9c-b337-b1b5c746605c" />
+<img width="255" height="357" alt="IpadNetflixsdignupx2000" src="https://github.com/user-attachments/assets/3a2de0e3-3490-49da-9df2-f0908d4c9215" />
 
-<img width="200" height="500" alt="MapscreenwithMenu 200px" src="https://github.com/user-attachments/assets/4c840fcb-2447-4fae-92d2-05355ec25d45" />
 
-<img width="200" height="500" alt="DestinationScreen" src="https://github.com/user-attachments/assets/40081ab1-cd63-43eb-9572-1b780f7056b1" />
 
-<img width="200" height="500" alt="Screenshot_RideOptions" src="https://github.com/user-attachments/assets/d7fd7118-6983-4903-b4f4-8ec8e4c54fa9" />
 
 
 
