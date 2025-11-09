@@ -110,18 +110,19 @@ Start the development server:
 Bash
 
 npm start  # or yarn start
-npx expo start
+
 The application should automatically open in your default browser at http://localhost:3000 (or another port if specified).
 
 🚀 Usage
 
-1. Home screen: "Select your pickup location using the Google places autocomplete search bar."
+1. Home screen: "Signup/Sign In Screen"
 
-2. Home Screen: "Press the "Get a Ride" option to navigate to the Destination screen.
+2. Plan Screen: Choose a Subscription Plan Screen.
 
-3. Destination Map Screen: Select your Destination location using the Google places autocomplete search bar.
+3. Stripe Payment Screen: Dummy/Sandbox Payment Screen for testing purposes. Do not enter real credit card details.
+4. Netflix Animation Welcome Screen. Displays animated letter "N" then transitions to Movie Screen.
 
-4. Select a Ride: Navigate options by scrolling horozontally. Choose your Ride from Uber X, Uber XL, Uber Lux. Prices and Journey times calculated.
+5. Movie Display Screen: Navigate Movie Screen by scrolling horozontally row by row. Choose a Movie and watch a Movie Trailer with YouTube Popup. Note: Only some movies have trailers availble.
 
 
 [Include any specific login details if applicable for a demo (e.g., Demo Username: test@example.com, Password: password123)]
