@@ -2,7 +2,7 @@
 Netflix Clone build developed in REACT 
 
 
-Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node.js, Firebase, Stripe API, TMDB API, Figma, Vercel; zero affiliation with the original brand."
+Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node.js, Firebase, Stripe API, TMDB API, Figma, Vercel. All payments are set in Dummy Mode/Sandbox/For testing only. Use credit card test numbers, fake address,name, email.; zero affiliation with the original brand."
 
 
 
