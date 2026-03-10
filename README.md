@@ -11,6 +11,7 @@ Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node
 
 
 
+<img width="325" height="580" alt="Screenshot 2026-03-10 125851" src="https://github.com/user-attachments/assets/1c5effad-4257-486f-b840-6f6ebc2a8e0e" />
 
 
 
