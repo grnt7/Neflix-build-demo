@@ -1,6 +1,168 @@
+#Movie Streaming Platform ✨
+FilmBuff build developed in REACT 
+
+
+Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node.js, Firebase, Stripe API, TMDB API, Figma, Vercel. All payments are set in Dummy Mode/Sandbox/For testing only. Use credit card test numbers, fake address,name, email.; zero affiliation with the original brand."
+
+
+
+
+
+
+
+<img width="325" height="580" alt="Screenshot 2026-03-10 125851" src="https://github.com/user-attachments/assets/1c5effad-4257-486f-b840-6f6ebc2a8e0e" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is an Netflix Clone developed using Papafam Let's Build an Netflix Clone with REACT !(Navigation, Redux, CSS, Firebase, Stripe and TMDB API's. Youtube tutorial. 
+
+🚀 Live 
+See the application live :
+
+and
+
+Scan the QR code:
+
+
+
+
+
+
+
+✨ Features
+
+Key Feature 1: Fully responsive design ensures seamless experience across all devices. 
+
+Key Feature 2: Built the application's user interface and client-side logic using React, ensuring compatibility across both iOS and Android platforms
+Key Feature 3. User authentication and subscription management via Firebase, payment via Stripe API integration.
+
+Key Feature 4:Responsive video card layouts with hover effects and dynamic content loading.
+
+Key Feature 5: Slick Introduction screen with animated "N" logo and background image. Designed using Figma".
+
+Key Feature 6:Fully deployed on Vercel, demonstrating production-ready payment integration.
+
+Key Feature 7: Navigate back to homescreen using Hamburger Menu.
+
+🛠️ Technologies Used
+Frontend:
+React 
+HTML5
+CSS3 for Styling Components
+JavaScript (ES6+)
+Jest
+Node.js
+Firebase
+Stripe API
+TMDB API
+Figma
+Vercel
+
+React Router Dom (for client-side routing)
+Redux for state management
+UI libraries:  UI.
+Backend:
+Node.js 
+MongoDB (or PostgreSQL/MySQL/Firebase Firestore) To Be Followed Up Later
+
+APIs Integrated:
+
+
+Version Control:
+Git
+GitHub
+⚙️ Installation & Local Setup
+Follow these steps to get a copy of the project running on your local machine for development and testing purposes.
+
+Clone the repository:
+Bash
+
+git clone https://github.com/grnt7/
+Navigate into the project directory:
+Bash
+
+cd your-repo-name
+Install dependencies:
+Bash
+
+npm install  # or yarn install
+Set up environment variables:
+Create a .env file in the root of the project.
+Add any necessary API keys or configuration variables. Example:
+REACT_APP_API_KEY=your_actual_api_key
+DATABASE_URL=your_database_connection_string
+(Adjust variable names to match your project's setup)
+Start the development server:
+Bash
+
+npm start  # or yarn start
+
+The application should automatically open in your default browser at http://localhost:3000 (or another port if specified).
+
+🚀 Usage
+
+1. Home screen: "Signup/Sign In Screen"
+
+2. Plan Screen: Choose a Subscription Plan Screen.
+
+3. Stripe Payment Screen: Dummy/Sandbox Payment Screen for testing purposes. Do not enter real credit card details.
+4. Netflix Animation Welcome Screen. Displays animated letter "N" then transitions to Movie Screen.
+
+5. Movie Display Screen: Navigate Movie Screen by scrolling horozontally row by row. Choose a Movie and watch a Movie Trailer with YouTube Popup. Note: Only some movies have trailers availble.
+
+
+[Include any specific login details if applicable for a demo (e.g., Demo Username: test@example.com, Password: password123)]
+🧪 Testing (Optional but highly recommended for demonstrating quality)
+To run the automated tests for this project:
+
+Bash
+
+npm test # or yarn test
+(Explain what types of tests you have - e.g., "This project includes unit tests for key components and integration tests for API interactions.")
+
+🤝 Contributing
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
+
+📞 Contact
+Your Name - Your Email Address
+
+Project Link: https://github.com/grnt7/my-expo-Uber-Clone)
+
+LinkedIn: https://www.linkedin.com/in/your-linkedin-profile
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Disclaimer:** Built purely for demonstration of React, HTML, Javascript, Stripe API skills; zero affiliation with the original brand."
 
 ## Available Scripts
 
