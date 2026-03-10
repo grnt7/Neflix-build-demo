@@ -5,16 +5,23 @@ import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {auth} from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout,selectUser } from './features/userSlice';
+import { login, logout, selectUser } from './features/userSlice';
+import Footer from "./Components/Footer";
 import './App.css';
+
 import AnimationScreen from './screens/AnimationScreen';
 
 function App() {
-
+  const theme = useSelector((state) => state.theme.themeName);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-   const [showAnimation, setShowAnimation] = useState(false);
-    const [loadingAuth, setLoadingAuth] = useState(true);
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [loadingAuth, setLoadingAuth] = useState(true);
+
+  useEffect(() => {
+    // This line "wires" the Redux state to your CSS :root[data-theme]
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   useEffect(()=> {
     const unsubscribe = auth.onAuthStateChanged
@@ -58,19 +65,22 @@ function App() {
         {!user ? (
           <LoginScreen />
         ) : (
-          <Routes>
-            {showAnimation ? (
-              // Render the AnimationScreen if showAnimation is true
-              <Route path="/" element={<AnimationScreen onAnimationEnd={onAnimationEnd} />} />
-            ) : (
-              // Otherwise, render the main application routes
-              <Route path="/" element={<Homescreen />} />
-            )}
-            <Route path="/profilescreen" element={<ProfileScreen/>} />
-          </Routes>
+          <>
+            <Routes>
+              {showAnimation ? (
+                <Route path="/" element={<AnimationScreen onAnimationEnd={onAnimationEnd} />} />
+              ) : (
+                <Route path="/" element={<Homescreen />} />
+              )}
+              <Route path="/profilescreen" element={<ProfileScreen/>} />
+            </Routes>
+
+            {/* ONLY show the Footer if the animation is finished */}
+            {!showAnimation && <Footer />} 
+          </>
         )}
       </Router>
-    </div>
+      </div>
   );
 }
 

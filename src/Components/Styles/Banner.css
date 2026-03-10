@@ -49,9 +49,16 @@ padding-left: 2rem;
 padding-right: 2rem;
 margin-right: 1rem;
 padding-top: 0.5rem;
+margin-top: 6.5rem;
 background-color: rgba(51, 51, 51, 0.5);
 padding-bottom: 0.5rem;
 
+}
+
+/* Banner.css */
+.banner__button {
+  background-color: var(--main-color); /* This will now flip between Red and Purple! */
+  color: white;
 }
 
 .banner-button:hover {
@@ -70,7 +77,7 @@ padding-bottom: 0.5rem;
 
 
 .banner--fadeBottom {
-    height: 17.5rem;
+    height: 24.5rem;
     background-image: linear-gradient(
         180deg,
         transparent,

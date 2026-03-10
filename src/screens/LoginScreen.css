@@ -1,45 +1,131 @@
+/* Define your theme colors and images at the very top */
+:root[data-theme='default'] {
+    --main-bg: url('./images/netflix_hero.webp');
+    --main-color: #e50914; /* Match the variable name used in your buttons */
+    --overlay: rgba(0, 0, 0, 0.4);
+}
 
+:root[data-theme='original'] {
+    --main-bg: #0f172a; /* Keeping your Navy background for 'Original' */
+    --main-color: #7c3aed; /* A vibrant Purple (Violet 600) */
+    --overlay: rgba(15, 23, 42, 0.8);
+}
+
+:root[data-theme='original'] .loginScreen-logo {
+    /* hue-rotate(280deg) usually turns red into a deep purple/violet */
+    filter: hue-rotate(250deg) saturate(150%);
+    transition: filter 0.3s ease;
+}
 
 .loginScreen {
     position: relative;
-    height:100%;
-    background: url('https://www.okynemedialab.com/wp-content/uploads/2019/11/netflix-background-1024x576.jpg') center no-repeat;
+    height: 100vh;
+    /* Use the variable here! */
+    background: var(--main-bg) center no-repeat;
     background-size: cover;
 }
 
+
 .loginScreen-logo{
     position:fixed;
-    top:0;
-    left:0;
+    top:20px;
+    left:30px;
     width:150px;
     object-fit: contain; 
     padding-left: 20px;
 }
 
-.loginScreen-button{
-    position:fixed;
-    right:20px;
-    top:20px;
+.loginScreen-gradient {
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+    /* Use the overlay variable */
+    background: var(--overlay);
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        transparent 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+.nav_logo {
+  height: 40px;
+  cursor: pointer;
+  /* Add a border while debugging to PROVE it's still there! */
+  /* border: 1px solid green; */ 
+  transition: color 0.3s ease-in-out;
+}
+
+/* 1. FORCE Red for 'Default' Theme */
+:root[data-theme='default'] .nav_logo {
+  color: #e50914 !important; /* Force red for Netflix theme */
+}
+
+/* 2. FORCE Crisp White for 'Original' Theme */
+:root[data-theme='original'] .nav_logo {
+  color: #ffffff !important; /* Force white for Navy theme */
+}
+
+.nav_logo, .loginScreen_logo {
+  filter: saturate(100%) contrast(100%);
+  transition: filter 0.3s ease-in-out; /* Makes the color change smooth! */
+}
+
+/* The new container that holds both buttons */
+.loginScreen-headerButtons {
+    position: fixed;
+    top: 20px;
+    right: 50px; /* Distance from the right edge of the screen */
+    display: flex;
+    align-items: center;
+    gap: 15px;   /* THIS is your equal space gap on ALL devices */
+    z-index: 10;
+}
+
+.loginScreen-button {
+    /* REMOVE: position: fixed; */
+    /* REMOVE: right: 50px; */
+    /* REMOVE: top: 20px; */
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #e50914;
-    color:#fff;
-    font-weight:600;
-    cursor:pointer;
+    background-color: var(--main-color, #e50914);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
 }
-.loginScreen-gradient{
-width:100%;
-z-index: 1;
-height: 100vh;
-background: rgba(0, 0, 0, 0.4);
-background-image: linear-gradient(
-to top,
-rgba(0, 0, 0, 0.8), 0,
-rgba(0, 0, 0, 0), 60%,
-rgba(0, 0, 0, 0.8) 100%,
 
-);
+
+.loginScreen-button, .loginScreen-getStarted {
+    /* The browser tries the variable first. If it's missing, it uses #e50914 */
+    background-color: var(--main-color, #e50914); 
+    color: #fff;
+    /* Adding a border helps them stay visible if colors are similar */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
 }
+
+.loginScreen-themeButton {
+    /* REMOVE: position: fixed; */
+    /* REMOVE: right: 135px; */
+    /* REMOVE: top: 25px; */
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: 1px solid #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.loginScreen-themeButton:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
 
 .loginScreen-body  {
     color: #fff;
@@ -79,28 +165,79 @@ font-weight: 400;
     margin:20px;
 }
 
-.loginScreen-input > form > input{
-    padding:10px;
+.loginScreen-input > form > input {
     outline-width: 0;
-    height:30px;
-    width:30%;
-    border:none;
-    max-width:600px;
+    height: 60px; /* Standard Netflix height */
+    width: 45%; 
+    padding: 0 20px; /* 0 top/bottom, 20px left/right */
+    border: none;
+    max-width: 600px;
+    font-size: 1rem;
 }
 
-   .loginScreen-getStarted{
-    padding:16px 20px;
-    font-size:1rem;
-    color:#fff;
-    background-color: #e50914;
-    border:none;
+ .loginScreen-getStarted {
+    height: 60px; /* Match the input exactly */
+    padding: 0 25px;
+    background-color: var(--main-color, #e50914);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
     font-weight: 600;
-    cursor:pointer;
-   }
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+/* Bottom of file */
+/* :root[data-theme='original'] .loginScreen-logo {
+    content: url('https://logoipsum.com/assets/all-logos/logoipsum-296.svg'); 
+    filter: invert(1); 
+} */
+
+/* Let's also hide that Netflix background poster when the theme is 'Original' */
+/* :root[data-theme='original'] .loginScreen {
+    background: #0f172a; /* Clean Navy instead of the movie poster 
+} */
+
+/* Media Query for Mobile Devices (smaller than 768px) */
+@media (max-width: 820px) {
+  .loginScreen-input > form {
+    display: flex;
+    flex-direction: column; /* Stacks them vertically */
+    align-items: center;
+    gap: 15px; /* Adds a professional gap between the stacked boxes */
+  }
+
+  .loginScreen-input > form > input {
+    width: 90%; /* Almost full width on mobile */
+    max-width: none; /* Removes the desktop restriction */
+    border-radius: 2px; /* Slight rounding looks better when stacked */
+  }
+
+  .loginScreen-getStarted {
+    width: 90%; /* Matches the input width exactly */
+    height: 50px; /* Slightly shorter is often better for mobile thumbs */
+    font-size: 1rem;
+    border-radius: 2px;
+  }
+
+  .loginScreen-logo{
+    position:fixed;
+    top:20px;
+    left:0;
+    width:120px;
+    object-fit: contain; 
+    
+}
+@media (max-width: 820px) {
+    .loginScreen-headerButtons {
+        right: 10px; /* Tighter to the edge on small phones */
+        gap: 10px;   /* Slightly smaller gap on mobile */
+    }
+}
 
 
 
-   /*
-https://www.okynemedialab.com/wp-content/uploads/2019/11/netflix-background-1024x576.jpg
-https://cdn.wallpapersafari.com/24/74/zgeTuV.jpg
-   */
+
+}
+   

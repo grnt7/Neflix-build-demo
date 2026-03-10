@@ -1,22 +1,36 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import "./LoginScreen.css";
 import SignUpScreen from './SignUpScreen';
+//import { toggleTheme } from "../store"; // Adjust path to your store.js
+import { toggleTheme } from '../features/rootReducer';
 
 function LoginScreen() {
 
 const [signIn, setSignIn] = useState(false);
 
+    const dispatch = useDispatch();
 
 
   return (
     <div className= "loginScreen">
     <div className="loginscreen-background"> 
         <img className ="loginScreen-logo"
-        src ="https://i1.wp.com/assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" 
-        alt=""/>
+        src ="/images/Filmbuff-woodmark-logo.png" 
+                  alt="Filmbuff-logo" />
+              <div className="loginScreen-headerButtons">
+              {/* The Theme Switcher */}
+         <button 
+           className="loginScreen-themeButton" 
+           onClick={() => dispatch(toggleTheme())}
+         >
+           {/* You can even change the button text based on theme! */}
+           Switch Theme
+         </button>
         <button onClick={() => setSignIn(true)} className="loginScreen-button">
             Sign In
-        </button>
+          </button>
+          </div>
         <div className="loginScreen-gradient"/>
         </div>
         <div className="loginScreen-body">

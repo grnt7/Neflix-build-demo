@@ -1,3 +1,56 @@
-.app{
-    background-color: black;
+/* App.css */
+
+/* 1. DEFAULT THEME (Must come first!) */
+:root {
+  --main-bg: #111;
+  --main-color: #e50914; /* Default Netflix Red */
+  --text-color: #ffffff;
+  --nav-bg: #111;
+}
+
+/* 2. ORIGINAL THEME (Overrides the defaults) */
+:root[data-theme='original'] {
+  --main-bg: #0f172a;
+  --main-color: #8b5cf6; /* Purple */
+  --text-color: #f8fafc;
+  --nav-bg: #1e293b;
+}
+
+.nav_logo {
+  height: 40px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out; /* Smooth color change */
+  /* Remove any existing border from debugging */
+  /* border: none; */ 
+}
+
+/* 2. Style for the 'Default' (Netflix Red/Black) Theme */
+:root[data-theme='default'] .nav_logo {
+  /* This rule must target your actual red, e.g. from your variables */
+  color: #e50914; 
+}
+
+/* 3. Style for the 'Original' (Navy/Purple) Theme */
+:root[data-theme='original'] .nav_logo {
+  /* This forces the vector text to become crisp white */
+  color: #ffffff; 
+}
+
+/* 3. THE APP LAYOUT */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Use the variable here so the background actually changes! */
+  background-color: var(--main-bg); 
+  color: var(--text-color);
+}
+
+.banner__button {
+  background-color: var(--main-color);
+  color: white;
+}
+
+footer {
+  margin-top: auto; 
 }

@@ -1,9 +1,10 @@
-// src/store.js
+// store.js
+
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from './features/rootReducer'; // Adjust the path if needed
+import rootReducer from './features/rootReducer';
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer, // No curly braces, no spreading, just the root!
 });
 
 export default store;

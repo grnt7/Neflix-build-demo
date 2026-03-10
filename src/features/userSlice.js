@@ -9,7 +9,7 @@ const userSlice = createSlice({
     login: (state, action) => {
       state.user = action.payload;
     },
-    logout: (state) => { // Corrected: Moved logout into the reducers object
+     logout: (state) => { // Corrected: Moved logout into the reducers object
       state.user = null;
     },
   },

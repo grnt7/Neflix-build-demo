@@ -2,10 +2,13 @@ import React, { useRef } from 'react';
 import { auth } from '../firebase';
 import './SignUpScreen.css';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+// import { useDispatch } from 'react-redux';
+
 
 function SignUpScreen() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  // const dispatch = useDispatch(); // 2. Initialize dispatc
 
   const register = () => {
     createUserWithEmailAndPassword(
@@ -50,157 +53,26 @@ function SignUpScreen() {
 
   return (
     <div className="signupScreen">
-      <form onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
-        <input ref={passwordRef} placeholder="password" type="password" />
-        <button type="submit">Sign In</button>
-
-        <h4>
-          <span className="signupScreen-grey">New to Netflix? </span>
-          <span className="signupScreen-link">
-            <button type="submit">Sign Up Now.</button>
-          </span>
-        </h4>
-      </form>
-    </div>
-  );
-}
-
-export default SignUpScreen;
-
-
-/*
-import React, { useRef } from 'react';
-import { auth } from '../firebase';
-import './SignUpScreen.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-
-function SignUpScreen() {
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (e.nativeEvent.submitter.textContent === "Sign In"){
-        signIn();
-    } else {
-        register();
-    }
-  };
-
-  const register = () => {
-    createUserWithEmailAndPassword(
-      auth,
-      emailRef.current.value,
-      passwordRef.current.value
-    )
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
-
-  const signIn = () => {
-    // Add your sign-in logic here
-    console.log("Sign In clicked");
-  };
-
-  return (
-    <div className="signupScreen">
-      <form onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
-        <input ref={passwordRef} placeholder="password" type="password" />
-        <button type="submit">Sign In</button>
-
-        <h4>
-          <span className="signupScreen-grey">New to Netflix? </span>
-          <span className="signupScreen-link">
-            <button type="submit">Sign Up Now.</button>
-          </span>
-        </h4>
-      </form>
-    </div>
-  );
-}
-
-export default SignUpScreen;
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-papas original code:
-import React, { useRef } from 'react';
-import { auth } from '../firebase';
-import './SignUpScreen.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth'; // Import the correct function
-
-function SignUpScreen() {
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-
-  const register = (e) => {
-    e.preventDefault();
-
-    createUserWithEmailAndPassword(
-      auth, // Pass the auth object
-      emailRef.current.value,
-      passwordRef.current.value
-    )
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
-
-  const signIn = (e) => {
-    e.preventDefault();
-  };
-
-  return (
-    <div className="signupScreen">
-      <form>
-        <h1>Sign In</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
-        <input ref={passwordRef} placeholder="password" type="password" />
-        <button type="button" onClick={signIn}>
-          Sign In
+      {/* 3. Add the toggle button inside a wrapper at the top */}
+      {/* <div className="loginScreen-headerButtons">
+        <button 
+          className="loginScreen-themeButton" 
+          onClick={() => dispatch(toggleTheme())}
+          type="button" 
+        >
+          Switch Theme
         </button>
+      </div> */}
+      <form onSubmit={handleSubmit}>
+        <h1>Sign In</h1>
+        <input ref={emailRef} placeholder="Email" type="email" />
+        <input ref={passwordRef} placeholder="password" type="password" />
+        <button type="submit">Sign In</button>
 
         <h4>
           <span className="signupScreen-grey">New to Netflix? </span>
-          <span className="signupScreen-link" onClick={register}>
-            Sign Up Now.
+          <span className="signupScreen-link">
+           <button type="button" onClick={register}>Sign Up Now.</button>
           </span>
         </h4>
       </form>
@@ -218,17 +90,6 @@ export default SignUpScreen;
 
 
 
-
-
-
-
-
-
-
-
-
-
-*/
 
 
 

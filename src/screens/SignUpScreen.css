@@ -1,62 +1,78 @@
-.signupScreen{
-
-    max-width: 300px;
+.signupScreen {
+    max-width: 450px; /* Netflix sign-in boxes are usually a bit wider */
     padding: 70px;
     margin-left: auto;
     margin-right: auto;
     background: rgba(0, 0, 0, 0.85);
-
+    border-radius: 4px;
+    /* This ensures the box stays centered if the parent uses Flex */
 }
 
 .signupScreen > form {
-    display:grid;
+    display: flex; /* Changed from grid to flex */
     flex-direction: column;
 }
 
+.signupScreen > form > h1 {
+    text-align: left;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
 .signupScreen > form > input {
-    outline-width: 0;
-    height:40px;
-    margin-bottom:14px;
-    border-radius: 5px;
-    border:none;
-    padding: 5px 15px;
-    
+    outline: none;
+    height: 50px; /* Slightly taller for modern UI */
+    margin-bottom: 16px;
+    border-radius: 4px;
+    border: none;
+    padding: 5px 20px;
+    background: #333; /* Classic Netflix input background */
+    color: white;
 }
 
 .signupScreen > form > button {
-    font-size:1rem;font-weight:600 ;
-    padding: 16px 20px;
-    border-radius: 5px;
-    background-color: #e50914;
-    color:#fff;
-    border:none;
-    margin: top 20px;
-    cursor:pointer;
-    
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 4px;
+    /* Use your variable here! */
+    background-color: var(--main-color, #e50914);
+    color: #fff;
+    border: none;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.signupScreen > form > h1{
-
-    text-align: left;
-    margin-bottom: 25px;
+.signupScreen > form > button:hover {
+    filter: brightness(0.9);
 }
 
 .signupScreen > form > h4 {
     text-align: left;
     margin-top: 30px;
-
 }
 
-.signupScreen-grey{
-
-    color:gray;
+.signupScreen-grey {
+    color: gray;
 }
 
-.signupScreen-link:hover{
-    cursor:pointer;
+.signupScreen-link {
+    color: #fff;
+    cursor: pointer;
+}
+
+.signupScreen-link:hover {
     text-decoration: underline;
 }
 
+/* Make the 'Sign Up Now' button look like a link */
 .signupScreen-link > button {
-    cursor:pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
 }
