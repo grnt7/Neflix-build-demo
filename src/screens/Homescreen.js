@@ -14,11 +14,11 @@ function Homescreen() {
     <Nav/>
     <Banner/>
     <Row
-    title="Netflix Originals" 
+    title="Auteur Picks" 
     fetchUrl={requests.fetchNetflixOriginals}
     isLargeRow/>
    
-    <Row title ="Trending Now"fetchUrl={requests.fetchTrending} />
+    <Row title ="Currently Projecting"fetchUrl={requests.fetchTrending} />
     <Row title ="Action  Movies"fetchUrl={requests.fetchActionMovies}/>
    
     <Row title ="Horror Movies"fetchUrl={requests.fetchHorrorMovies}/>
