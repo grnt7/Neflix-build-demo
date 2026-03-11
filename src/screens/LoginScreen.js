@@ -38,9 +38,9 @@ const [signIn, setSignIn] = useState(false);
                 <SignUpScreen/>
             ) : (
                 <>
-                <h1>Unlimited Films, TV Programmes and More</h1>
-                <h2>Watch anywhere. Cancel at any time.</h2>
-                <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+                <h1>Your All-Access Pass to World-Class Cinema.</h1>
+                <h2>Stream the icons, the indies, and everything in between.</h2>
+                <h3>Join the community. Enter your email to start your journey.</h3>
                    
                    <div className="loginScreen-input">
                     <form>
