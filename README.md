@@ -28,14 +28,12 @@ Disclaimer:** Built purely for demonstration of React ,Next.js, CSS3, Jest, Node
 
 
 
-This is an Netflix Clone developed using Papafam Let's Build an Netflix Clone with REACT !(Navigation, Redux, CSS, Firebase, Stripe and TMDB API's. Youtube tutorial. 
+This is an Movie Streaming App developed using REACT !(Navigation, Redux, CSS, Firebase, Stripe and TMDB API's.
 
 🚀 Live 
 See the application live :
 
-and
 
-Scan the QR code:
 
 
 
